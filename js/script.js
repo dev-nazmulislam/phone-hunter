@@ -34,14 +34,12 @@ const displayPhones = (phones) => {
   } else {
     spinner.classList.add("d-none");
     error.innerText = `${phones.length} Data Found`;
-
     const twentyPhone = phones.slice(0, 20);
 
     // Loop throw on only twenty phones and show in ui
     twentyPhone.forEach((phone) => {
       const div = document.createElement("div");
       div.classList.add("col");
-
       div.innerHTML = `
         <div class="card shadow-lg p-4">
             <div class="w-50 mx-auto">
@@ -62,12 +60,16 @@ const displayPhones = (phones) => {
     });
   }
 };
+
+// Load Single Phone
 const loadPhoneDetails = (id) => {
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => showPhoneDetails(data.data));
 };
+
+// Show single Phone in UI
 const showPhoneDetails = (phone) => {
   singlePhoneContainer.innerHTML = "";
   const div = document.createElement("div");
@@ -83,7 +85,7 @@ const showPhoneDetails = (phone) => {
     </div>
     <h3 class="card-title text-center">${phone.name} </h3>
     <div class="card-body">
-        <div class="row bg-light">
+        <div class="row bg-success text-light">
             <strong class="col-12 border p-2">Main Features</strong>
         </div>
         <div class="row">
@@ -116,7 +118,7 @@ const showPhoneDetails = (phone) => {
               ", "
             )}</span>
         </div>
-        <div class="row bg-light">
+        <div class="row bg-secondary text-light">
             <strong class="col-12 border p-2">Others</strong>
         </div>
         <div class="row">
