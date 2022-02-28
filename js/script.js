@@ -1,6 +1,5 @@
 // Get UI Container Value
 const phoneContainer = document.getElementById("phone-container");
-const restPhoneContainer = document.getElementById("phone-rest");
 const singlePhoneContainer = document.getElementById("single-phone-container");
 const spinner = document.getElementById("spinner");
 const error = document.getElementById("error");
@@ -10,7 +9,6 @@ const loadPhone = () => {
   // Empty Previus Value
   error.innerHTML = "";
   phoneContainer.innerHTML = "";
-  restPhoneContainer.innerHTML = "";
   singlePhoneContainer.innerHTML = "";
   spinner.classList.remove("d-none");
 
@@ -37,8 +35,6 @@ const displayPhones = (phones) => {
     spinner.classList.add("d-none");
     error.innerText = `Total: ${phones.length} Data Found`;
     const twentyPhone = phones.slice(0, 20);
-    const restPhone = phones.slice(20, phones.length);
-    console.log(restPhone);
 
     // Loop throw on only twenty phones and show in ui
     twentyPhone.forEach((phone) => {
@@ -62,16 +58,6 @@ const displayPhones = (phones) => {
       `;
       phoneContainer.appendChild(div);
     });
-
-    // Loop throw rest twenty phones and show in ui
-
-    if (restPhone.length != 0) {
-      const div2 = document.createElement("div");
-      div2.innerHTML = `
-      <button onclick="displayRestPhone(${restPhone})" class="btn btn-success">Show More</button>
-      `;
-      restPhoneContainer.appendChild(div2);
-    }
   }
 };
 
@@ -162,8 +148,4 @@ const showPhoneDetails = (phone) => {
     </div>
   `;
   singlePhoneContainer.appendChild(div);
-};
-
-const displayRestPhone = (restPhone) => {
-  console.log(restPhone);
 };
