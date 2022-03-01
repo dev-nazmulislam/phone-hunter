@@ -123,12 +123,12 @@ const showPhoneDetails = (phone) => {
   div.innerHTML = `
     <div class="w-50 mx-auto">
         <img
-            src="${phone.image}"
+            src="${phone?.image}"
             class="card-img-top img-fluid"
             alt="..."
         />
     </div>
-    <h3 class="card-title text-center">${phone.name} </h3>
+    <h3 class="card-title text-center">${phone?.name} </h3>
     <div class="card-body">
         <div class="row bg-success text-light">
             <strong class="col-12 border p-2">Main Features</strong>
@@ -136,59 +136,99 @@ const showPhoneDetails = (phone) => {
         <div class="row">
             <strong class="col-4 border p-2">First Release</strong>
             <span class="col-8 border p-2">${
-              phone.releaseDate ? phone.releaseDate : "No release Date found"
+              phone?.releaseDate ? phone?.releaseDate : "No release Date found"
             }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Storage</strong>
-            <span class="col-8 border p-2">${phone.mainFeatures?.storage}</span>
+            <span class="col-8 border p-2">${
+              phone.mainFeatures?.storage
+                ? phone.mainFeatures?.storage
+                : "no storage found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Display size</strong>
             <span class="col-8 border p-2">${
-              phone.mainFeatures?.displaySize
+              phone?.mainFeatures?.displaySize
+                ? phone?.mainFeatures?.displaySize
+                : "no display information found"
             }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Chipset</strong>
-            <span class="col-8 border p-2">${phone.mainFeatures?.chipSet}</span>
+            <span class="col-8 border p-2">${
+              phone?.mainFeatures?.chipSet
+                ? phone?.mainFeatures?.chipSet
+                : "No Chipset information found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Memory</strong>
-            <span class="col-8 border p-2">${phone.mainFeatures?.memory}</span>
+            <span class="col-8 border p-2">${
+              phone?.mainFeatures?.memory
+                ? phone?.mainFeatures?.memory
+                : "No Memory Information found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Sensors</strong>
-            <span class="col-8 border p-2">${phone.mainFeatures?.sensors?.join(
-              ", "
-            )}</span>
+            <span class="col-8 border p-2">${
+              phone?.mainFeatures?.sensors
+                ? phone?.mainFeatures?.sensors.join(", ")
+                : "No Sensors information found"
+            }</span>
         </div>
         <div class="row bg-secondary text-light">
             <strong class="col-12 border p-2">Others</strong>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">WLAN</strong>
-            <span class="col-8 border p-2">${phone?.others?.WLAN}</span>
+            <span class="col-8 border p-2">${
+              phone?.others?.WLAN
+                ? phone?.others?.WLAN
+                : "No WLAN information Found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Bluetooth</strong>
-            <span class="col-8 border p-2">${phone?.others?.Bluetooth}</span>
+            <span class="col-8 border p-2">${
+              phone?.others?.Bluetooth
+                ? phone?.others?.Bluetooth
+                : "No Bluetooth information Found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">GPS</strong>
-            <span class="col-8 border p-2">${phone?.others?.GPS}</span>
+            <span class="col-8 border p-2">${
+              phone?.others?.GPS
+                ? phone?.others?.GPS
+                : "No GPS information Found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">NFC</strong>
-            <span class="col-8 border p-2">${phone?.others?.NFC}</span>
+            <span class="col-8 border p-2">${
+              phone?.others?.NFC
+                ? phone?.others?.NFC
+                : "No NFC information Found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Radio</strong>
-            <span class="col-8 border p-2">${phone?.others?.Radio}</span>
+            <span class="col-8 border p-2">${
+              phone?.others?.Radio
+                ? phone?.others?.Radio
+                : "No Radio information Found"
+            }</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">USB</strong>
-            <span class="col-8 border p-2">${phone?.others?.USB}</span>
+            <span class="col-8 border p-2">${
+              phone?.others?.USB
+                ? phone?.others?.USB
+                : "No USB information found"
+            }</span>
         </div>
     </div>
   `;
