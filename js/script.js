@@ -9,24 +9,33 @@ const restItem = document.getElementById("rest-phone");
 
 // Load Phones API
 const loadPhone = () => {
+  const inputField = document.getElementById("search-text");
+  const searchText = inputField.value.toLowerCase();
+  loadApi(searchText);
+  inputField.value = "";
+};
+
+// Fetch api Data
+const loadApi = (searchText) => {
   // Empty Previus Value
   error.innerHTML = "";
   phoneContainer.innerHTML = "";
   singlePhoneContainer.innerHTML = "";
   spinner.classList.remove("d-none");
-
-  //   Get Input Value
-  const inputField = document.getElementById("search-text");
-  const searchText = inputField.value.toLowerCase();
-
-  //   Fetch API and send to display
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => displayPhones(data.data));
+};
 
-  // empty input value
-  inputField.value = "";
+const defoultValue = () => {
+  phoneContainer.innerHTML = "";
+  singlePhoneContainer.innerHTML = "";
+  error.innerHTML = "";
+  spinner.classList.add("d-none");
+  showButton.classList.add("d-none");
+  clossButton.classList.add("d-none");
+  restItem = "";
 };
 
 // Show Phones in UI
@@ -34,6 +43,8 @@ const displayPhones = (phones) => {
   if (phones.length == 0) {
     spinner.classList.add("d-none");
     error.innerText = "No Data Found. Please!! Provide a valid input";
+    showButton.classList.add("d-none");
+    clossButton.classList.add("d-none");
   } else {
     spinner.classList.add("d-none");
     error.innerText = `Total: ${phones.length} Data Found`;
@@ -89,7 +100,8 @@ const displayPhones = (phones) => {
         restItem.appendChild(div2);
       });
     } else {
-      restButton.classList.add("d-none");
+      showButton.classList.add("d-none");
+      clossButton.classList.add("d-none");
     }
   }
 };
@@ -160,7 +172,7 @@ const showPhoneDetails = (phone) => {
         </div>
         <div class="row">
             <strong class="col-4 border p-2">Bluetooth</strong>
-            <span class="col-8 border p-2">${phone?.others?.WLAN}</span>
+            <span class="col-8 border p-2">${phone?.others?.Bluetooth}</span>
         </div>
         <div class="row">
             <strong class="col-4 border p-2">GPS</strong>

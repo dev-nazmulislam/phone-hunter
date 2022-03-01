@@ -13,15 +13,71 @@
       crossorigin="anonymous"
     />
     <style>
-      #phone-container .card {
+      body {
+        overflow: scroll;
+        overflow-x: hidden;
+      }
+      #phone-container .card,
+      #rest-phone .card {
         height: 430px;
       }
     </style>
   </head>
   <body>
-    <section class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container px-0">
+          <a onclick="defoultValue()" class="navbar-brand" href="#"
+            >Smart Phones</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  onclick="defoultValue()"
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a onclick="loadApi('apple')" class="nav-link" href="#"
+                  >Apple</a
+                >
+              </li>
+              <li class="nav-item">
+                <a onclick="loadApi('samsung')" class="nav-link" href="#"
+                  >Samsung</a
+                >
+              </li>
+              <li class="nav-item">
+                <a onclick="loadApi('oppo')" class="nav-link" href="#">Oppo</a>
+              </li>
+              <li class="nav-item">
+                <a onclick="loadApi('huawei')" class="nav-link" href="#"
+                  >Huawei</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="container px-0">
       <!-- search area -->
-      <h1 class="text-center text-success">Search your favarite Phone</h1>
+      <h3 class="text-center text-success my-4">Search your favarite Phone</h3>
       <div class="d-flex">
         <input
           id="search-text"
