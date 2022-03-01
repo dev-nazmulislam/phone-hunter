@@ -20,6 +20,7 @@
 7.  Tarnary Oparetor.
 8.  Spinner.
 9.  Error Handaling.
+10. FavIcon.
 
 [Live Site](https://mobile-store-bd.netlify.app/)
 
