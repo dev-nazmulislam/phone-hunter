@@ -28,4 +28,4 @@
 
 ### Website png
 
-![smart-phone](https://user-images.githubusercontent.com/97091081/156131770-a622d52e-3930-464e-8c2f-844c31b78111.png)
+![smart-phone](https://user-images.githubusercontent.com/97091081/156134260-7917f3aa-2962-4163-b4c3-e1a41c3673a3.png)
