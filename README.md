@@ -7,7 +7,7 @@
 1. Html,
 2. Bootstrap,
 3. JavaScript
-4. Daynamic Value from API
+4. Daynamic API
 
 ### JavaScript use Method:
 
