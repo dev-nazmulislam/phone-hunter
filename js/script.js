@@ -3,6 +3,9 @@ const phoneContainer = document.getElementById("phone-container");
 const singlePhoneContainer = document.getElementById("single-phone-container");
 const spinner = document.getElementById("spinner");
 const error = document.getElementById("error");
+const showButton = document.getElementById("taggle-on-button");
+const clossButton = document.getElementById("taggle-of-button");
+const restItem = document.getElementById("rest-phone");
 
 // Load Phones API
 const loadPhone = () => {
@@ -45,7 +48,7 @@ const displayPhones = (phones) => {
             <div class="w-50 mx-auto">
                 <img
                 src="${phone.image}"
-                class="card-img-top"
+                class="card-img-top img-fluid"
                 alt="..."
                 />            
             </div>
@@ -58,6 +61,36 @@ const displayPhones = (phones) => {
       `;
       phoneContainer.appendChild(div);
     });
+    // show remainig phone
+    const remainingPhone = phones.slice(20, phones.length);
+    if (remainingPhone != 0) {
+      showButton.classList.remove("d-none");
+      clossButton.classList.add("d-none");
+      restItem.innerHTML = "";
+      remainingPhone.forEach((phone) => {
+        const div2 = document.createElement("div");
+        div2.classList.add("col");
+        div2.innerHTML = `
+          <div class="card shadow-lg p-4">
+              <div class="w-50 mx-auto">
+                  <img
+                  src="${phone.image}"
+                  class="card-img-top img-fluid"
+                  alt="..."
+                  />            
+              </div>
+              <div class="card-body">
+                  <h4 class="text-center">${phone.phone_name}</h4>
+                  <p class="text-center">${phone.brand}</p>
+              </div>
+              <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-success">Show Details</button>
+          </div>
+        `;
+        restItem.appendChild(div2);
+      });
+    } else {
+      restButton.classList.add("d-none");
+    }
   }
 };
 
@@ -148,4 +181,16 @@ const showPhoneDetails = (phone) => {
     </div>
   `;
   singlePhoneContainer.appendChild(div);
+};
+
+const showRemaining = () => {
+  restItem.classList.remove("d-none");
+  clossButton.classList.remove("d-none");
+  showButton.classList.add("d-none");
+};
+
+const coloseRemaining = () => {
+  restItem.classList.add("d-none");
+  showButton.classList.remove("d-none");
+  clossButton.classList.add("d-none");
 };
